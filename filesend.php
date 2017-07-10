@@ -42,9 +42,22 @@ if(isset($_POST['submit']))
           <div class="form-group">
             <label for="send">Send to:</label>
             <select class="form-control" name="send" id="send">
-               <option>DCO</option>
-               <option>TMA</option>
-               <option>Revenue</option>
+               <?php
+                    mysqli_select_db($conn, $dbname);
+                    $sql = "SELECT `list` FROM `dept_dir`";
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo "<option>" . $row["list"]. "</option>" ."<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+
+                    mysqli_close($conn); 
+                ?>
             </select>
           </div>
           <button type="submit" name="submit" class="btn btn-default">Save</button>
