@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
     $date = $_POST['date'];
     $title = $_POST['title'];
     $send = $_POST['send'];
-
+//
  $sql = "INSERT INTO send ". "(docno,date, title,send) ".
         "VALUES('$docno','$date','$title','$send')";
             mysqli_select_db($conn, $dbname);
