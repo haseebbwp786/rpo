@@ -20,7 +20,7 @@
                         <a href="filesend.php">send</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="addDept.php">Add New Department</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>
