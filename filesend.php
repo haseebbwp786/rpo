@@ -4,7 +4,7 @@
 <?php
 if(isset($_POST['submit'])) 
 { 
-    $docno = $_POST['docno'];
+    $docno = $_POST['docno']; //document number
     $date = $_POST['date'];
     $title = $_POST['title'];
     $send = $_POST['send'];
