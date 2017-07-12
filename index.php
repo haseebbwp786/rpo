@@ -7,7 +7,7 @@
             <div class="col-lg-12">
                 <?php
                     mysqli_select_db($conn, $dbname);
-                    $sql = "SELECT * FROM `send`";
+                    $sql = "SELECT * FROM `diry`";
                     $result = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($result) > 0) {

@@ -17,13 +17,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="filesend.php">send</a>
+                        <a href="diry.php">Diry</a>
                     </li>
                     <li>
-                        <a href="addDept.php" data-toggle="modal" data-target="#myModal">Add New Department</a>
+                        <a href="dispatch.php">Dispatch</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#">Responce</a>
                     </li>
                 </ul>
             </div>

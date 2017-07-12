@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
                die('Could not enter data: ' . mysqli_error());
             }
             
-            echo "Entered data successfully\n";
+            echo "Entered data successfully";
             
             mysqli_close($conn);
 }
