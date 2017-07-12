@@ -59,7 +59,7 @@ if(isset($_POST['addDept']))
             <input type="text" class="form-control" id="title" placeholder="Enter Subject" name="title">
           </div>
           <div class="form-group">
-            <label for="send">Send to:</label>
+            <label for="send">Received From:</label>
             <select class="form-control" name="received" id="received">
                 <?php echo getDepList($conn);?>
             </select>
