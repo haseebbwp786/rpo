@@ -11,61 +11,78 @@
             <div class="col-lg-12">
                 <div class="tab-content">
                     <div id="diry" class="tab-pane fade in active">
-                       <table class="table">
+                       <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                  <th>Document Number</th>
-                                  <th>Date</th>
-                                  <th>Subject</th>
-                                  <th>Send to</th>
+                                  <th class="col-md-1">Document Number</th>
+                                  <th class="col-md-2">Date</th>
+                                  <th class="col-md-8">Subject</th>
+                                  <th class="col-md-1">Send to</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                     mysqli_select_db($conn, $dbname);
-                                    $sql = "SELECT * FROM `diry`";
+                                    $sql = "SELECT * FROM `diry` ORDER BY id DESC";
                                     $result = mysqli_query($conn, $sql);
 
                                     if (mysqli_num_rows($result) > 0) {
                                         // output data of each row
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                            echo "<tr><td>" . $row["docno"]. "</td><td>" . $row["date"]. "</td><td>" . $row["title"].  
-                                                    "</td><td>" . $row["send"]. "</td></tr>";
-                                        }
-                                    } else {
-                                        echo "0 results";
-                                    }
+                                        while($row = mysqli_fetch_assoc($result)) {?>
+                                
+                                            <tr>
+                                                <td><?php echo $row["docno"];?></td>
+                                                <td><?php echo date("d M, Y",strtotime($row["date"]));?></td>
+                                                <td><?php echo $row["title"];?></td>  
+                                                <td><?php echo $row["send"]; ?> </td>
+                                            </tr>
+                                        <?php }
+                                    } else {?>
+                                            <tr>
+                                                <td colspan="6">
+                                                    No Result
+                                                </td>
+                                            </tr>
+                                        
+                                    <?php }
                                 ?>
                             </tbody>
                         </table>
                     </div>
                     <div id="received" class="tab-pane fade">
-                       <table class="table">
+                       <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                  <th>Document Number</th>
-                                  <th>Date</th>
-                                  <th>Subject</th>
-                                  <th>Send to</th>
+                                  <th class="col-md-1">Document Number</th>
+                                  <th class="col-md-2">Date</th>
+                                  <th class="col-md-8">Subject</th>
+                                  <th class="col-md-1">Send to</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                     mysqli_select_db($conn, $dbname);
-                                    $sql = "SELECT * FROM `dispatch`";
+                                    $sql = "SELECT * FROM `dispatch` ORDER BY id DESC";
                                     $result = mysqli_query($conn, $sql);
 
                                     if (mysqli_num_rows($result) > 0) {
                                         // output data of each row
-                                        while($row = mysqli_fetch_assoc($result)) {
-                                            echo "<tr><td>" . $row["docno"]. "</td><td>" . $row["date"]. "</td><td>" . $row["title"].  
-                                                    "</td><td>" . $row["received"]. "</td></tr>";
-                                        }
-                                    } else {
-                                        echo "0 results";
-                                    }
-
-                                    mysqli_close($conn); 
+                                        while($row = mysqli_fetch_assoc($result)) {?>
+                                
+                                            <tr>
+                                                <td><?php echo $row["docno"];?></td>
+                                                <td><?php echo date("d M, Y",strtotime($row["date"]));?></td>
+                                                <td><?php echo $row["title"];?></td>  
+                                                <td><?php echo $row["received"]; ?> </td>
+                                            </tr>
+                                        <?php }
+                                    } else {?>
+                                            <tr>
+                                                <td colspan="6">
+                                                    No Result
+                                                </td>
+                                            </tr>
+                                    <?php }
                                 ?>
                             </tbody>
                         </table>

@@ -14,4 +14,5 @@ function getDepList($conn){
         echo "0 results";
     }
 }
+
 ?>
