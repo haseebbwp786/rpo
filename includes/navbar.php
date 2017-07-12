@@ -20,7 +20,7 @@
                         <a href="filesend.php">send</a>
                     </li>
                     <li>
-                        <a href="addDept.php">Add New Department</a>
+                        <a href="addDept.php" data-toggle="modal" data-target="#myModal">Add New Department</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>

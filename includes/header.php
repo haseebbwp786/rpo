@@ -9,13 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Logo Nav - Start Bootstrap Template</title>
+    <title>RPO</title>
     
     <!-- Custom CSS -->
     <link href="css/custom.css" rel="stylesheet">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="css/bootstrap.min.js"></script>
+    <script src="../js/jquery.js"></script>
     
     <!-- Custom footer -->
     <link href="css/footer.css" rel="stylesheet">

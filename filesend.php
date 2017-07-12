@@ -1,6 +1,7 @@
 <?php include './includes/conn.php';?>
 <?php include './includes/header.php';?>
 <?php include './includes/navbar.php';?>
+<?php include './includes/functions.php';?>
 <?php
 if(isset($_POST['submit'])) 
 { 
@@ -11,7 +12,6 @@ if(isset($_POST['submit']))
 //
  $sql = "INSERT INTO send ". "(docno,date, title,send) ".
         "VALUES('$docno','$date','$title','$send')";
-            mysqli_select_db($conn, $dbname);
             $retval = mysqli_query($conn, $sql);
             
             if(! $retval) {
@@ -42,22 +42,7 @@ if(isset($_POST['submit']))
           <div class="form-group">
             <label for="send">Send to:</label>
             <select class="form-control" name="send" id="send">
-               <?php
-                    mysqli_select_db($conn, $dbname);
-                    $sql = "SELECT `list` FROM `dept_dir`";
-                    $result = mysqli_query($conn, $sql);
-
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<option>" . $row["list"]. "</option>" ."<br>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
-
-                    mysqli_close($conn); 
-                ?>
+                <?php echo getDepList($conn);?>
             </select>
           </div>
           <button type="submit" name="submit" class="btn btn-default">Save</button>
