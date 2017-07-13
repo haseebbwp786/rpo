@@ -3,27 +3,6 @@
 <?php include './includes/navbar.php';?>
 <?php include './includes/functions.php';?>
 <?php
-if(isset($_POST['diry'])) 
-{ 
-    $docno = $_POST['docno']; //document number
-    $date = $_POST['date'];
-    $title = $_POST['title'];
-    $send = $_POST['send'];
-//
- $sql = "INSERT INTO diry ". "(docno,date, title,send) ".
-        "VALUES('$docno','$date','$title','$send')";
-            $retval = mysqli_query($conn, $sql);
-            
-            if(! $retval) {
-               die('Could not enter data: ' . mysqli_error());
-            }
-            
-            echo "Entered data successfully\n";
-            
-            mysqli_close($conn);
-}
-?>
-<?php
 if(isset($_POST['addDept'])) 
 { 
     $deptName = $_POST['deptName'];
@@ -45,18 +24,18 @@ if(isset($_POST['addDept']))
 <!-- Page Content -->
     <div class="container">
        <h2>File send</h2>
-       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+       <form id="submit_form">
           <div class="form-group">
             <label for="docno">Document Number:</label>
-            <input type="text" class="form-control" id="docno" placeholder="Enter Document Number" name="docno">
+            <input type="text" name="docno" id="docno" class="form-control" />
           </div>
           <div class="form-group">
             <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" name="date">
+            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="date" name="date">
           </div>
           <div class="form-group">
             <label for="title">Subject:</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter Subject" name="title">
+            <input type="text" name="title" id="title" class="form-control" />
           </div>
           <div class="form-group">
             <label for="send">Send to:</label>
@@ -64,10 +43,10 @@ if(isset($_POST['addDept']))
                 <?php echo getDepList($conn);?>
             </select>
           </div>
-          <button type="submit" name="diry" class="btn btn-default">Save</button>
+          <input type="button" name="diry" id="diry" class="btn btn-default" value="Submit" />
           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addNewDept">Add New Department</button>
         </form>
-       
+       <div id="response"></div>
        <!-- Modal -->
         <div class="modal fade" id="addNewDept" role="dialog">
           <div class="modal-dialog">
@@ -98,3 +77,4 @@ if(isset($_POST['addDept']))
      </div>
     <!-- /.container -->
 <?php include './includes/footer.php';?>
+    <script src="js/insertDiry.js"></script>

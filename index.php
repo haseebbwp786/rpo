@@ -16,8 +16,9 @@
                                 <tr>
                                   <th class="col-md-1">Document Number</th>
                                   <th class="col-md-2">Date</th>
-                                  <th class="col-md-8">Subject</th>
+                                  <th class="col-md-7">Subject</th>
                                   <th class="col-md-1">Send to</th>
+                                  <th class="col-md-1">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,10 +32,11 @@
                                         while($row = mysqli_fetch_assoc($result)) {?>
                                 
                                             <tr>
-                                                <td><?php echo $row["docno"];?></td>
-                                                <td><?php echo date("d M, Y",strtotime($row["date"]));?></td>
-                                                <td><?php echo $row["title"];?></td>  
-                                                <td><?php echo $row["send"]; ?> </td>
+                                                <td class="col-md-1"><?php echo $row["docno"];?></td>
+                                                <td class="col-md-2"><?php echo date("d M, Y",strtotime($row["date"]));?></td>
+                                                <td class="col-md-7"><?php echo $row["title"];?></td>  
+                                                <td class="col-md-1"><?php echo $row["send"]; ?></td>
+                                                <td class="col-md-1"></td>
                                             </tr>
                                         <?php }
                                     } else {?>
