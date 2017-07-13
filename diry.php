@@ -24,7 +24,7 @@ if(isset($_POST['addDept']))
 <!-- Page Content -->
     <div class="container">
        <h2>File send</h2>
-       <form id="submit_form">
+       <form id="diry_form_submit">
           <div class="form-group">
             <label for="docno">Document Number:</label>
             <input type="text" name="docno" id="docno" class="form-control" />

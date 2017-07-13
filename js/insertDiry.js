@@ -13,7 +13,7 @@
                 $.ajax({  
                      url:"insertDiry.php",  
                      method:"POST",  
-                     data:$('#submit_form').serialize(),  
+                     data:$('#diry_form_submit').serialize(),  
                      beforeSend:function(){  
                           $('#response').html('<span class="text-info">Loading response...</span>');  
                      },  
