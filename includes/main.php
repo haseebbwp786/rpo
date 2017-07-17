@@ -1,3 +1,7 @@
+<?php include './includes/conn.php';?>
+<?php include './includes/header.php';?>
+<?php include './includes/navbar.php';?>
+<?php include './includes/functions.php';?>
 <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -7,14 +11,5 @@
             </div>
         </div>
     </div>
-    <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+<?php include './includes/footer.php';?>
