@@ -102,7 +102,7 @@ function getModelSent($conn){?>
             <tr>
               <th class="col-md-1">Document Number</th>
               <th class="col-md-2">Date</th>
-              <th class="col-md-7">Subject</th>
+              <th class="col-md-6">Subject</th>
               <th class="col-md-1">Send to</th>
               <th class="col-md-1">Action</th>
             </tr>
@@ -111,16 +111,16 @@ function getModelSent($conn){?>
             <?php
                 $sql = "SELECT * FROM `diry` ORDER BY id DESC";
                 $result = mysqli_query($conn, $sql);
-
+                
                 if (mysqli_num_rows($result) > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_assoc($result)) {?>
                     <?php $idDiry = $row["id"]?>
-
+            
                         <tr>
                             <td class="col-md-1"><?php echo $row["docno"];?></td>
                             <td class="col-md-2"><?php echo date("d M, Y",strtotime($row["date"]));?></td>
-                            <td class="col-md-7"><?php echo $row["title"];?></td>  
+                            <td class="col-md-6"><?php echo $row["title"];?></td>  
                             <td class="col-md-1"><?php echo $row["send"]; ?></td>
                             <td class="col-md-1">
                                 <div class="dropdown">
@@ -196,50 +196,7 @@ function getModelSent($conn){?>
     </table>
  <?php }
  
- function addDepartment($conn){
-     
-if(isset($_POST['addDept'])) 
-{ 
-    $deptName = $_POST['deptName'];
-
- $query = "INSERT INTO `dept_dir`(`list`)".
-        "VALUES('$deptName')";
-            $retval = mysqli_query($conn, $query);
-            
-            if(! $retval) {
-               die('Could not enter data: ' . mysqli_error());
-            }
-            
-            echo "Entered data successfully";
-}
- }
- 
- function getDiryFormSubmit($conn){?>
-     <form id="diry_form_submit">
-          <div class="form-group">
-            <label for="docno">Document Number:</label>
-            <input type="text" name="docno" id="docno" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="date" name="date">
-          </div>
-          <div class="form-group">
-            <label for="title">Subject:</label>
-            <input type="text" name="title" id="title" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="send">Send to:</label>
-            <select class="form-control" name="send" id="send">
-                <?php echo getDepList($conn);?>
-            </select>
-          </div>
-          <input type="button" name="diry" id="diry" class="btn btn-default" value="Save" />
-          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addNewDept">Add New Department</button>
-        </form>
- <?php }
- 
- function getDispatchFormSubmit($conn){?>
+function getDispatchFormSubmit($conn){?>
         <form id="dispatch_form_submit">
            <div class="form-group">
              <label for="docno">Document Number:</label>
@@ -264,30 +221,4 @@ if(isset($_POST['addDept']))
         </form>
 <?php }
 
-
- function getModelAddNewDepartment($conn){?>
-     <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add New Department</h4>
-              </div>
-              <div class="modal-body">
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                  <div class="form-group">
-                    <label for="deptName">Department Name</label>
-                    <input type="text" class="form-control" id="deptName" placeholder="Enter Department Name" name="deptName">
-                  </div>
-                  <button type="submit" name="addDept" class="btn btn-default">Save</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-
-          </div>
- <?php }
  ?>

@@ -5,20 +5,20 @@
 <?php 
 if(isset($_POST["updat_diry"]))  
  {  
-      echo $id = $_POST["diry_id"];
+      $id = $_POST["diry_id"];
       $docno = mysqli_real_escape_string($conn, $_POST["docno"]);
       $date = mysqli_real_escape_string($conn, $_POST["date"]);
       $title = mysqli_real_escape_string($conn, $_POST["title"]); 
       $send = mysqli_real_escape_string($conn, $_POST["send"]);
       
-      echo $query = "UPDATE `diry` SET `docno`= '$docno',`date`='$date',`title`='$title',`send`='$send' WHERE (`id`= '$id')";  
+      $query = "UPDATE `diry` SET `docno`= '$docno',`date`='$date',`title`='$title',`send`='$send' WHERE (`id`= '$id')";  
       if(mysqli_query($conn, $query))  
       {  
-           echo '<p>You have entered</p>';  
-           echo '<p>Name:'.$docno.'</p>';  
-           echo '<p>Message : '.$date.'</p>';
-           echo '<p>Name:'.$title.'</p>';  
-           echo '<p>Message : '.$send.'</p>';
+           echo '<p>Record Updated</p>';  
+           echo '<p>Document Number :'.$docno.'</p>';  
+           echo '<p>Date : '.$date.'</p>';
+           echo '<p>Title :'.$title.'</p>';  
+           echo '<p>Sent To : '.$send.'</p>';
       } else {
           echo 'check';
       }  

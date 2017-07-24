@@ -11,10 +11,10 @@
       if(mysqli_query($conn, $query))  
       {  
            echo '<p>You have entered</p>';  
-           echo '<p>Name:'.$docno.'</p>';  
-           echo '<p>Message : '.$date.'</p>';
-           echo '<p>Name:'.$title.'</p>';  
-           echo '<p>Message : '.$send.'</p>';
+           echo '<p>Document Number:'.$docno.'</p>';  
+           echo '<p>Date : '.$date.'</p>';
+           echo '<p>Title:'.$title.'</p>';  
+           echo '<p>Send To : '.$send.'</p>';
       }  
  //}  
  ?> 

@@ -13,10 +13,15 @@ include 'includes/conn.php';
       if(mysqli_query($conn, $query))  
       {  
            echo '<p>You have entered</p>';  
-           echo '<p>Name:'.$docno.'</p>';  
-           echo '<p>Message : '.$date.'</p>';
-           echo '<p>Name:'.$title.'</p>';  
-           echo '<p>Message : '.$send.'</p>';
+           echo '<p>Documbent Number :'.$docno.'</p>';  
+           echo '<p>Date : '.$date.'</p>';
+           echo '<p>Title :'.$title.'</p>';  
+           echo '<p>Sent To : '.$send.'</p>';
       } else {
           echo 'check';
       }
+for($id_diry=0; $id_diry <= 10; $id_diry++){
+    echo "The number is: $id_diry <br>";
+}
+
+?>
