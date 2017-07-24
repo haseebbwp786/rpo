@@ -24,7 +24,7 @@ function getModelSent($conn){?>
             <h4 class="modal-title">Edit Sent File</h4>
           </div>
           <div class="modal-body">
-              <form id="diry_form_submit" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+              <form id="update_diry_form">
                   <input type="hidden" value="" name="diry_id" id="diry_id" />
                 <div class="form-group">
                   <label for="s_docno">Document Number:</label>
@@ -44,8 +44,9 @@ function getModelSent($conn){?>
                       <?php echo getDepList($conn);?>
                   </select>
                 </div>
-                <button type="submit" name="updat_diry" class="btn btn-default">Update</button>
+                  <button type="button" name="updat_diry" id="updat_diry" class="btn btn-default">Update</button>
               </form>
+              <div id="updateDiryResponse"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -65,7 +66,8 @@ function getModelSent($conn){?>
             <h4 class="modal-title">Edit Receive File</h4>
           </div>
           <div class="modal-body">
-              <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+              <form id="update_dispatch_form">
+                  <input type="hidden" value="" name="dispatch_id" id="dispatch_id" />
                 <div class="form-group">
                   <label for="r_docno">Document Number:</label>
                   <input type="text" class="form-control" id="r_docno" placeholder="Enter Document Number" name="docno">
@@ -84,8 +86,9 @@ function getModelSent($conn){?>
                       <?php echo getDepList($conn);?>
                   </select>
                 </div>
-                <button type="submit" name="diry" class="btn btn-default">Save</button>
+                  <button type="button" name="update_dispatch" id="update_dispatch" class="btn btn-default">Update</button>
               </form>
+              <div id="updateDispatchResponse"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -128,7 +131,7 @@ function getModelSent($conn){?>
                                    <span class="caret"></span></button>
                                    <ul class="dropdown-menu">
                                      <li><a  href="#" id="<?php echo $idDiry;?>" class="sent_edit_button"  role = "menuitem" tabindex = "-1"  data-toggle="modal" data-target="#sentEdit" >Edit</a></li>
-                                     <li><a href="#">Delet</a></li>
+                                     <li><a  href="#" id="<?php echo $idDiry;?>" class="sent_delete_button"  role = "menuitem" tabindex = "-1"  data-toggle="modal" data-target="#sentDelete" >Delet</a></li>
                                    </ul>
                                 </div>
                             </td>
@@ -178,7 +181,7 @@ function getModelSent($conn){?>
                                    <span class="caret"></span></button>
                                    <ul class="dropdown-menu">
                                      <li><a  href="#" id="<?php echo $idDispatch;?>" class="receive_edit_button"  role = "menuitem" tabindex = "-1"  data-toggle="modal" data-target="#receiveEdit" >Edit</a></li>
-                                     <li><a href="#">Delet</a></li>
+                                     <li><a href="#" id="<?php echo $idDispatch;?>" class="receive_Delete_button"  role = "menuitem" tabindex = "-1"  data-toggle="modal" data-target="#receiveDelete" >Delet</a></li>
                                    </ul>
                                 </div>
                             </td>
@@ -195,30 +198,5 @@ function getModelSent($conn){?>
         </tbody>
     </table>
  <?php }
- 
-function getDispatchFormSubmit($conn){?>
-        <form id="dispatch_form_submit">
-           <div class="form-group">
-             <label for="docno">Document Number:</label>
-             <input type="text" name="docno" id="docno" class="form-control" />
-           </div>
-           <div class="form-group">
-             <label for="date" class="col-2 col-form-label">Date and time</label>
-             <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="date" name="date">
-           </div>
-           <div class="form-group">
-             <label for="title">Subject:</label>
-             <input type="text" name="title" id="title" class="form-control" />
-           </div>
-           <div class="form-group">
-             <label for="send">Received:</label>
-             <select class="form-control" name="received" id="received">
-                 <?php echo getDepList($conn);?>
-             </select>
-           </div>
-           <input type="button" name="dispatch" id="dispatch" class="btn btn-default" value="Save" />
-           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addNewDept">Add New Department</button>
-        </form>
-<?php }
 
  ?>

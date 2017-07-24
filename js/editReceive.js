@@ -5,6 +5,7 @@ $(".receive_edit_button").click(function(){
                     console.log( "JSON Data: " + key + " val "+ val );
                   });
                   
+                $("#dispatch_id").val(json.id);  
                 $("#r_docno").val(json.docno);
                 $("#r_date").val(json.date);
                 $("#r_title").val(json.title);

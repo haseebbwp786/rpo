@@ -2,28 +2,7 @@
 <?php include './includes/header.php';?>
 <?php include './includes/navbar.php';?>
 <?php include './includes/functions.php';?>
-<?php 
-if(isset($_POST["updat_diry"]))  
- {  
-      $id = $_POST["diry_id"];
-      $docno = mysqli_real_escape_string($conn, $_POST["docno"]);
-      $date = mysqli_real_escape_string($conn, $_POST["date"]);
-      $title = mysqli_real_escape_string($conn, $_POST["title"]); 
-      $send = mysqli_real_escape_string($conn, $_POST["send"]);
-      
-      $query = "UPDATE `diry` SET `docno`= '$docno',`date`='$date',`title`='$title',`send`='$send' WHERE (`id`= '$id')";  
-      if(mysqli_query($conn, $query))  
-      {  
-           echo '<p>Record Updated</p>';  
-           echo '<p>Document Number :'.$docno.'</p>';  
-           echo '<p>Date : '.$date.'</p>';
-           echo '<p>Title :'.$title.'</p>';  
-           echo '<p>Sent To : '.$send.'</p>';
-      } else {
-          echo 'check';
-      }  
- }
-?>
+
 <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -52,6 +31,57 @@ if(isset($_POST["updat_diry"]))
         <div class="modal fade" id="receiveEdit" role="dialog">
             <?php echo getModelReceive($conn);?>
         </div>
+        
+        <!-- Modal sent delet  -->
+        <div class="modal fade" id="sentDelete" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Sent File</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form id="delete_diry_form">
+                          <input type="hidden" value="" name="del_diry" id="del_diry" />
+                          <button type="button" name="diry_delete" id="diry_delete" class="btn btn-default">Delete</button>
+                      </form>
+                      <div id="deleteDiryResponse"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Modal receive delet  -->
+        <div class="modal fade" id="receiveDelete" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Receive File</h4>
+                  </div>
+                  <div class="modal-body">
+                      <form id="delete_dispatch_form">
+                          <input type="hidden" value="" name="del_dispatch" id="del_dispatch" />
+                          <button type="button" name="dispatch_delete" id="dispatch_delete" class="btn btn-default">Delete</button>
+                      </form>
+                      <div id="deleteDispatchResponse"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+        
     </div>
     <!-- /.container -->
 
@@ -65,4 +95,10 @@ if(isset($_POST["updat_diry"]))
     $('#fileReceived').DataTable();
 } );</script>
 <script src="js/editSent.js"></script>
+<script src="js/deleteSent.js"></script>
 <script src="js/editReceive.js"></script>
+<script src="js/deleteReceive.js"></script>
+<script src="js/updateDiry.js"></script>
+<script src="js/updateDispatch.js"></script>
+<script src="js/deleteDiry.js"></script>
+<script src="js/deleteDispatch.js"></script>
