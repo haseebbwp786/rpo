@@ -1,7 +1,7 @@
  $(document).ready(function(){  
       $('#dispatch_delete').click(function(){
           $.ajax({  
-                     url:"deleteDispatch.php",  
+                     url:"ajax/deleteDispatch.php",  
                      method:"POST",  
                      data:$('#delete_dispatch_form').serialize(),  
                      beforeSend:function(){  

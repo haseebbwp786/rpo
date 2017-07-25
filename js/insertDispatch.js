@@ -11,7 +11,7 @@
            else  
            {  
                 $.ajax({  
-                     url:"insertDispatch.php",  
+                     url:"ajax/insertDispatch.php",  
                      method:"POST",  
                      data:$('#dispatch_form_submit').serialize(),  
                      beforeSend:function(){  

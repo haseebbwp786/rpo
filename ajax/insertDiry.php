@@ -1,5 +1,5 @@
 <?php  
- include 'includes/conn.php';
+ include '../includes/conn.php';
  
  //if(isset($_POST["diry"]))  
  //{  

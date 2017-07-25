@@ -11,7 +11,7 @@
            else  
            {  
                 $.ajax({  
-                     url:"updateDiry.php",  
+                     url:"ajax/updateDiry.php",  
                      method:"POST",  
                      data:$('#update_diry_form').serialize(),  
                      beforeSend:function(){  

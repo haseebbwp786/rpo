@@ -8,7 +8,7 @@
            else  
            {  
                 $.ajax({  
-                     url:"addDepartment.php",  
+                     url:"ajax/addDepartment.php",  
                      method:"POST",  
                      data:$('#add_new_dept').serialize(),  
                      beforeSend:function(){  
