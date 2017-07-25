@@ -5,7 +5,7 @@
     </div>
     <div class="form-group">
        <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-       <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="date" name="date">
+       <input type="text" value="" id="datetimepickerdiry" class="form-control"  name="date"/>
     </div>
     <div class="form-group">
        <label for="title">Subject:</label>

@@ -32,7 +32,7 @@ function getModelSent($conn){?>
                 </div>
                 <div class="form-group">
                   <label for="s_date" class="col-2 col-form-label">Date and time</label>
-                  <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="s_date" name="date">
+                  <input type="text" value="" id="s_date" class="form-control"  name="date"/>
                 </div>
                 <div class="form-group">
                   <label for="s_title">Subject:</label>
@@ -74,7 +74,7 @@ function getModelSent($conn){?>
                 </div>
                 <div class="form-group">
                   <label for="r_date" class="col-2 col-form-label">Date and time</label>
-                  <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="r_date" name="date">
+                  <input type="text" value="" id="r_date" class="form-control"  name="date"/>
                 </div>
                 <div class="form-group">
                   <label for="r_title">Subject:</label>
